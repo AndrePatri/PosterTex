@@ -1,0 +1,147 @@
+% Copyright (C) 2023  Andrea Patrizi (AndrePatri, andreapatrizi1b6e6@gmail.com)
+% 
+% This file is part of PhDBiorobBeamerTemplate and distributed under the General Public License version 2 license.
+% 
+% PhDBiorobBeamerTemplate is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 2 of the License, or
+% (at your option) any later version.
+% 
+% PhDBiorobBeamerTemplate is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+% 
+% You should have received a copy of the GNU General Public License
+% along with PhDBiorobBeamerTemplate.  If not, see <http://www.gnu.org/licenses/>.
+% 
+
+% colors
+\input{colors}
+
+\input{fonts}
+
+% utilities
+\input{utilities}
+
+\makeatletter
+
+\newlength{\myroundradius}
+\setlength{\myroundradius}{5mm} % Default value
+
+\newcommand{\setroundradius}[1]{%
+	\setlength{\myroundradius}{#1}%
+}
+
+\newcommand{\contentframecolor}{white} % Default content frame color
+\newcommand{\setcontentframecolor}[1]{%
+	\renewcommand{\contentframecolor}{#1}%
+}
+
+\newenvironment{customblock}[5][0pt]{%
+	% #1: Optional border thickness (default 0pt)
+	% #2: Block title
+	% #3: Title Background color
+	% #4: Title text color
+	% #5: Content Background color
+	\begin{tcolorbox}[colback=#3,colframe=#3,arc=\myroundradius,auto outer arc,
+		coltext=#4,boxrule=0pt,boxsep=0pt,
+		left=5pt,right=5pt,top=\titlepaddingtop,bottom=\titlepaddingbottom]
+		\centering\LARGE #2
+	\end{tcolorbox}
+	\vspace{\titlecontentspace} % Space between title and content
+	
+	\begin{tcolorbox}[colback=#5,colframe=\contentframecolor,arc=\myroundradius,auto outer arc,
+		boxrule=#1,boxsep=5pt,
+		left=5pt,right=5pt,top=5pt,bottom=5pt]
+	}{
+	\end{tcolorbox}
+	\vspace{\baselineskip} % Space after the block
+}
+
+\newlength{\titlecontentspace}
+\setlength{\titlecontentspace}{0.5cm} % Default value
+
+\newcommand{\settitlecontentspace}[1]{%
+	\setlength{\titlecontentspace}{#1}%
+}
+
+\newlength{\titlepaddingtop}
+\setlength{\titlepaddingtop}{5pt} % Default value for padding above the title
+
+\newlength{\titlepaddingbottom}
+\setlength{\titlepaddingbottom}{5pt} % Default value for padding below the title
+
+\newcommand{\settitlepaddingtop}[1]{%
+	\setlength{\titlepaddingtop}{#1}%
+}
+
+\newcommand{\settitlepaddingbottom}[1]{%
+	\setlength{\titlepaddingbottom}{#1}%
+}
+
+\NewDocumentCommand{\headline}{ > {\SplitList{,}} m }{%
+	% Extract the two paths from the list
+	\ProcessList{#1}{\assignlogo}
+	\setlogos
+}
+
+\newcommand{\assignlogo}[1]{%
+	\ifx\firstlogo\@undefined
+	\newcommand{\firstlogo}{#1}
+	\else
+	\newcommand{\secondlogo}{#1}
+	\fi
+}
+
+\newcommand{\setlogos}{%
+	\begin{columns}[b]
+		\begin{column}[c]{.8\textwidth}
+			\begin{center}
+				\begin{HUGE}
+					\textcolor{black}{\textbf{\getProjName}}\\
+				\end{HUGE}
+			\end{center}
+		\end{column}
+	\end{columns}
+	
+	\begin{columns}[b]
+		\begin{column}[c]{.3\textwidth}
+			\ifx\firstlogo\@empty
+			\hbox{} % Empty box if no first logo
+			\else
+			\hskip2cm
+			\includegraphics[scale=1.6]{\firstlogo}
+			\fi
+		\end{column}
+		\begin{column}[c]{.4\textwidth}
+			\begin{center}
+				\begin{huge}
+					\getStudentName\\
+					\getCurriculumName\\
+				\end{huge}\medskip
+				\begin{LARGE}
+					\getLocationName\\
+				\end{LARGE}
+			\end{center}
+		\end{column}
+		\begin{column}[c]{.3\textwidth}
+			\ifx\secondlogo\@empty
+			\hbox{} % Empty box if no second logo
+			\else
+			\hskip6cm
+			\includegraphics[scale=1.6]{\secondlogo}
+			\fi
+		\end{column}    
+	\end{columns}
+	
+	\vskip2cm
+	
+}
+
+\newcommand{\themarker}{$\triangleright$} % Default marker
+\newcommand{\settheitemmarker}[1]{%
+	\renewcommand{\themarker}{#1}%
+}
+
+\makeatother

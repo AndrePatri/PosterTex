@@ -1,0 +1,75 @@
+% Copyright (C) 2023  Andrea Patrizi (AndrePatri, andreapatrizi1b6e6@gmail.com)
+% 
+% This file is part of PhDBiorobBeamerTemplate and distributed under the General Public License version 2 license.
+% 
+% PhDBiorobBeamerTemplate is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 2 of the License, or
+% (at your option) any later version.
+% 
+% PhDBiorobBeamerTemplate is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+% 
+% You should have received a copy of the GNU General Public License
+% along with PhDBiorobBeamerTemplate.  If not, see <http://www.gnu.org/licenses/>.
+
+% Reduce line spacing
+\linespread{1.0}
+
+% Hyperref setup
+\hypersetup{
+	colorlinks=true,
+	linkcolor=boxbkseablue,       % Color of internal links
+	citecolor=green,      % Color of citations
+	filecolor=magenta,    % Color of file links
+	urlcolor=boxbkseablue,         % Color of URL links
+	pdfborder={0 0 1}
+}
+
+% Reduce paragraph spacing
+\setlength{\parskip}{0pt}
+
+\setbeamersize{text margin left=15mm,text margin right=15mm}
+% Adjust the geometry to set top and bottom margins
+\geometry{top=2.5mm, bottom=2.5mm}
+
+% Remove indentation for all paragraphs
+\setlength{\parindent}{0pt}
+
+% Reduce spacing in itemize/enumerate environments
+%\setlist[itemize]{itemsep=0pt, topsep=0pt}
+%\setlist[enumerate]{itemsep=0pt, topsep=0pt}
+% Global list settings
+\setlist[itemize]{topsep=0pt, partopsep=0pt, parsep=0pt}
+
+% Adjust spacing for figures and tables
+\setlength{\abovecaptionskip}{0pt}
+\setlength{\belowcaptionskip}{0pt}
+
+% Redefine spacing after environments
+\makeatletter
+\def\@afterindentfalse{\@afterheading}
+\def\@afterheading{%
+	\vspace{-1em} % Adjust this value as needed
+	\clubpenalty\@M
+	\widowpenalty\clubpenalty
+	\sfcode`\.\@m}
+\makeatother
+
+%\setbeamercolor{block body}{bg=blocktitleviolet,fg=blocktitleviolet}
+%
+%\setbeamercolor{block title}{bg=white,fg=white}
+
+%\setbeamerfont{block title}{size=\Large, series=\bfseries}
+%
+%\setbeamerfont{block body}{size=\large}
+
+%\setbeamertemplate{block title}{\insertblocktitle}
+
+% Customize block title template for horizontal centering and potentially vertical adjustments
+
+\addtobeamertemplate{block begin}{\vspace*{0.8cm}}{\vspace*{0.4cm}}
+
+%\setbeamertemplate{navigation symbols}{} % To remove navigation symbols

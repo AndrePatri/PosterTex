@@ -1,0 +1,137 @@
+% Copyright (C) 2023  Andrea Patrizi (AndrePatri, andreapatrizi1b6e6@gmail.com)
+% 
+% This file is part of PosterTex and distributed under the General Public License version 2 license.
+% 
+% PosterTex is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 2 of the License, or
+% (at your option) any later version.
+% 
+% PosterTex is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+% 
+% You should have received a copy of the GNU General Public License
+% along with PosterTex.  If not, see <http://www.gnu.org/licenses/>.
+% 
+
+\documentclass{beamer}
+
+% packages 
+\input{00-imports}
+
+% settings
+\input{00-settings}
+
+% definitions
+\input{00-defs}
+
+% bibliography
+\input{bibsources.tex}
+
+% you have to set all this personal information
+\setCurriculumName{PhD Curriculum in Advanced and Humanoid Robotics}
+\setResearchProjName{Super Catchy Poster Title}
+\setStudent{John Doe}
+\setContacts{myemail@me.it\\myotheremail@gmail.com}
+\setUrls{www.mypersonalwebsite.com/in/andrepatri,https://github.com/ItsMe}
+\setLocation{Beautiful Location}
+\setFootlineLogo{logos/small_logos.pdf}
+
+\setroundradius{2mm}
+\settitlecontentspace{-0.3cm}
+\settitlepaddingtop{20pt}
+\settitlepaddingbottom{15pt}
+
+\setcontentframecolor{boxbkdarkgrey}
+
+\author{\getStudentName}
+\title{\getProjName}
+
+\checksetup
+
+\begin{document}
+	
+	\begin{frame}[t]
+		
+		\headline{logos/iit-hhcm-logo.pdf,logos/unige-dibris-color.pdf}
+			
+		\begin{columns}[b]
+			
+			\begin{column}{0.955\textwidth}
+				
+				\begin{customblock}[10pt]{\textbf{Motivation}}{blocktitleviolet}{white}{blockbkgrey}
+					
+					\vspace{20cm}
+					
+				\end{customblock}
+		
+			\end{column}
+		
+		\end{columns}
+			
+		\begin{columns}[b] 
+
+			\begin{column}{.46\textwidth}
+				
+				\begin{customblock}[10pt]{\textbf{Problem framing and SoA}}{blocktitleviolet}{white}{blockbkgrey}
+					
+					\vspace{12cm}
+					
+				\end{customblock}
+			
+				\begin{customblock}[10pt]{\textbf{Something}}{blocktitleviolet}{white}{blockbkgrey}
+					
+					\vspace{35cm}
+				
+				\end{customblock}
+				
+				\begin{customblock}[10pt]{\textbf{Next steps}}{boxbkseablue}{white}{blockbkgrey}
+					
+					\vspace{15cm}
+					
+				\end{customblock}
+			
+			\end{column}
+			
+			\begin{column}{.46\textwidth}
+				
+				\begin{customblock}[10pt]{\textbf{Proposed approach}}{blocktitleviolet}{white}{blockbkgrey}
+					
+					\vspace{15cm}
+					
+				\end{customblock}
+				
+				\begin{customblock}[10pt]{\textbf{Formulation details}}{blocktitleviolet}{white}{blockbkgrey}
+					
+					\vspace{20cm}
+					
+				\end{customblock}
+			
+				\begin{customblock}[10pt]{\textbf{References}}{boxbkdarkgrey}{white}{blockbkgrey}
+					
+					\vspace{15cm}
+
+				\end{customblock}
+				
+				\begin{customblock}[10pt]{\textbf{Contact Information}}{blockbkgreen}{white}{blockbkgrey}
+					
+					\Large{ 
+						\color{boxbkseablue}
+						\textbf{\getContactsList}
+					}
+				
+					\vspace{5cm}
+					
+				\end{customblock}
+			
+			\end{column}
+			
+		\end{columns}
+	
+		\vskip1cm
+
+	\end{frame}
+
+\end{document}
