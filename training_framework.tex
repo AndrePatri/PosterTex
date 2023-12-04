@@ -1,0 +1,21 @@
+\bigskip
+\Large{
+\centering Given
+\begin{itemize}
+	\item[\themarker] a \textbf{cluster} of MPC controllers on \textbf{CPU}
+	\item[\themarker] Parallel simulators (\textbf{GPU}, Omniverse IsaacSim)
+\end{itemize}
+\vskip1cm
+\centering
+\textbf{How to bridge the two?}
+\vskip1cm	
+}
+\centering
+\includegraphics[width=0.95\textwidth]{docs/imgs/architecture.pdf}
+\vskip1cm
+\begin{itemize}
+	\item[\themarker] \textbf{multiprocessed} MPC controllers
+	\item[\themarker] simulator bridge (\textbf{CPU~$\leftrightarrows$~GPU})
+	\item[\themarker] \textbf{low-latency} CPU data exchange with \textbf{shared memory}
+\end{itemize}
+\bigskip

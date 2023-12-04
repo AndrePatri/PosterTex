@@ -59,6 +59,17 @@
 	\vspace{\baselineskip} % Space after the block
 }
 
+\newenvironment{customblocknotitle}[2][0pt]{%
+	% #1: Optional border thickness (default 0pt)
+	% #2: Content Background color
+	\begin{tcolorbox}[colback=#2,colframe=\contentframecolor,arc=\myroundradius,auto outer arc,
+		boxrule=#1,boxsep=5pt,
+		left=5pt,right=5pt,top=5pt,bottom=5pt]
+	}{
+	\end{tcolorbox}
+	\vspace{\baselineskip} % Space after the block
+}
+
 \newlength{\titlecontentspace}
 \setlength{\titlecontentspace}{0.5cm} % Default value
 
@@ -99,7 +110,7 @@
 		\begin{column}[c]{.8\textwidth}
 			\begin{center}
 				\begin{HUGE}
-					\textcolor{black}{\textbf{\getProjName}}\\
+					\textcolor{black}{\textbf{\getPosterName}}\\
 				\end{HUGE}
 			\end{center}
 		\end{column}
@@ -110,16 +121,15 @@
 			\ifx\firstlogo\@empty
 			\hbox{} % Empty box if no first logo
 			\else
-			\hskip2cm
+			\hspace{1.5cm}
 			\includegraphics[scale=1.6]{\firstlogo}
 			\fi
 		\end{column}
 		\begin{column}[c]{.4\textwidth}
 			\begin{center}
 				\begin{huge}
-					\getStudentName\\
-					\getCurriculumName\\
-				\end{huge}\medskip
+					\getAuthors\\
+				\end{huge}\vskip1cm
 				\begin{LARGE}
 					\getLocationName\\
 				\end{LARGE}
@@ -129,8 +139,8 @@
 			\ifx\secondlogo\@empty
 			\hbox{} % Empty box if no second logo
 			\else
-			\hskip6cm
-			\includegraphics[scale=1.6]{\secondlogo}
+			\hspace{-0.8cm}
+			\includegraphics[scale=1.5]{\secondlogo}
 			\fi
 		\end{column}    
 	\end{columns}

@@ -1,3 +1,3 @@
-### Poster
+# Humanoids2023Poster
 
-This is a simple and clean LaTeX template for producing research posters with LaTeX.
+Research poster for Humanoids2023 conference associated with the paper *Optimal Design of Agile Jumping Maneuvers for a Single Leg System*

@@ -19,7 +19,7 @@
 }
 
 \ExplSyntaxOn
-\seq_new:N \g_tutorlist_seq
+
 \seq_new:N \g_contactslist_seq
 
 \NewDocumentCommand{\setCurriculumName}{m}
@@ -37,19 +37,14 @@
 	\tl_gset:Nn \g_location_tl {#1}
 }
 
-\NewDocumentCommand{\setResearchProjName}{m}
+\NewDocumentCommand{\setPosterName}{m}
 {
 	\tl_gset:Nn \g_proj_tl {#1}
 }
 
-\NewDocumentCommand{\setTutors}{m}
+\NewDocumentCommand{\setAuthors}{m}
 {
-	\seq_gset_from_clist:Nn \g_tutorlist_seq {#1}
-}
-
-\NewDocumentCommand{\setStudent}{m}
-{
-	\tl_gset:Nn \g_student_tl {#1}
+	\tl_gset:Nn \g_authors_tl {#1}
 }
 
 \NewDocumentCommand{\setCycle}{m}
@@ -78,14 +73,9 @@
 
 \NewDocumentCommand{\getLocationName}{}{\tl_use:N \g_location_tl}
 
-\NewDocumentCommand{\getProjName}{}{\tl_use:N \g_proj_tl}
+\NewDocumentCommand{\getPosterName}{}{\tl_use:N \g_proj_tl}
 
-\NewDocumentCommand{\getStudentName}{}{\tl_use:N \g_student_tl}
-
-\NewDocumentCommand{\getTutorsList}{}
-{
-	\seq_use:Nn \g_tutorlist_seq {,~}
-}
+\NewDocumentCommand{\getAuthors}{}{\tl_use:N \g_authors_tl}
 
 \NewDocumentCommand{\getCycle}{}
 {
@@ -99,16 +89,20 @@
 
 \NewDocumentCommand{\getContactsList}{}
 {
-	\seq_use:Nn \g_contactslist_seq {,~}
+	\seq_use:Nn \g_contactslist_seq {\\}
 }
 
 \NewDocumentCommand{\getUrlList}{}
 {
-	\seq_use:Nn \g_urllist_seq {,~}
+	\seq_use:Nn \g_urllist_seq {\\}
 }
 
 \NewDocumentCommand{\checksetup}{}
 {
+	\seq_if_empty:NT \g_tutorlist_seq
+	{
+		\msg_error:nn {PhdBiorobReportTemplate} {no-tutors-set}
+	}
 	\seq_if_empty:NT \g_contactslist_seq
 	{
 		\msg_error:nn {PhdBiorobReportTemplate} {no-contacts-set}
@@ -143,11 +137,7 @@
 
 \msg_new:nnn {PhdBiorobReportTemplate} {no-urls-set} {No~urls~set!~Please~use~\space\string\setUrls\space.}
 
-\msg_new:nnn {PhdBiorobReportTemplate} {no-student-set} { No~student~has~been~set!~Please~use~\string\setStudent.}
-
 \msg_new:nnn {PhdBiorobReportTemplate} {no-curriculum-set} { No~curriculum~has~been~set!~Please~use~\string\setCurriculumName.}
-
-\msg_new:nnn {PhdBiorobReportTemplate} {no-projectname-set} { No~research~project~name~has~been~set!~Please~use~\string\setResearchProjName.}
 
 \msg_new:nnn {PhdBiorobReportTemplate} {no-cycle-set} { No~PhD~cycle~has~been~set!~Please~use~\space\string\setCycle.}
 
@@ -157,7 +147,7 @@
 {
 	\begin{flushleft}
 		\vspace{1.5cm}
-		\large{\textbf{Student:~}}\large{{\getStudentName}}\vspace{0.2cm}\\
+		\large{\textbf{Student:~}}\large{{\getAuthors}}\vspace{0.2cm}\\
 		\large{\textbf{Cycle:~}}\large{\getCycle}\vspace{0.2cm}\\
 		\large{\textbf{Tutor(s):~}}\large{{\getTutorsList}}\vspace{0.2cm}\\
 		\large{\textbf{Year:~}}\large{\getYear}\vspace{0.2cm}\\

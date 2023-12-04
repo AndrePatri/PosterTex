@@ -31,23 +31,18 @@
 \input{bibsources.tex}
 
 % you have to set all this personal information
-\setCurriculumName{PhD Curriculum in Advanced and Humanoid Robotics}
-\setResearchProjName{Super Catchy Poster Title}
-\setStudent{John Doe}
-\setContacts{myemail@me.it\\myotheremail@gmail.com}
-\setUrls{www.mypersonalwebsite.com/in/andrepatri,https://github.com/ItsMe}
-\setLocation{Beautiful Location}
-\setFootlineLogo{logos/small_logos.pdf}
+\setPosterName{Super catchy title: interesting subtitle}
+\setAuthors{John Doe, Janet Doe and Janet Doe}
+\setContacts{john.doe@me.com, janet.doe@me.com}
+\setUrls{www.linkedin.com/in/JohnDoe, www.linkedin.com/in/JanetDoe}
+\setLocation{Beautiful Venue, \\University of The World, Somewhere}
 
-\setroundradius{2mm}
+\setroundradius{5mm}
 \settitlecontentspace{-0.3cm}
 \settitlepaddingtop{20pt}
 \settitlepaddingbottom{15pt}
 
 \setcontentframecolor{boxbkdarkgrey}
-
-\author{\getStudentName}
-\title{\getProjName}
 
 \checksetup
 
@@ -55,15 +50,15 @@
 	
 	\begin{frame}[t]
 		
-		\headline{logos/iit-hhcm-logo.pdf,logos/unige-dibris-color.pdf}
+		\headline{logos/humanoids2023_logo.pdf,logos/hhcm-unige_logo.pdf}
 			
 		\begin{columns}[b]
 			
 			\begin{column}{0.955\textwidth}
 				
-				\begin{customblock}[10pt]{\textbf{Motivation}}{blocktitleviolet}{white}{blockbkgrey}
+				\begin{customblock}{\textbf{Motivation}}{hhcmblue}{white}{blockbkgrey}
 					
-					\vspace{20cm}
+					\input{motivation}
 					
 				\end{customblock}
 		
@@ -71,66 +66,53 @@
 		
 		\end{columns}
 			
-		\begin{columns}[b] 
+		\begin{columns}[T] 
 
 			\begin{column}{.46\textwidth}
 				
-				\begin{customblock}[10pt]{\textbf{Problem framing and SoA}}{blocktitleviolet}{white}{blockbkgrey}
-					
-					\vspace{12cm}
-					
-				\end{customblock}
-			
-				\begin{customblock}[10pt]{\textbf{Something}}{blocktitleviolet}{white}{blockbkgrey}
-					
-					\vspace{35cm}
-				
+				\begin{customblock}{\textbf{Contributions}}{hhcmblue}{white}{blockbkgrey}
+					\input{contributions}
 				\end{customblock}
 				
-				\begin{customblock}[10pt]{\textbf{Next steps}}{boxbkseablue}{white}{blockbkgrey}
-					
-					\vspace{15cm}
-					
+				\begin{customblock}{\textbf{SoA}}{hhcmblue}{white}{blockbkgrey}
+					\input{SoA}
 				\end{customblock}
 			
+				\begin{customblock}{\textbf{Formulation}}{hhcmblue}{white}{blockbkgrey}
+					\input{formulation}
+				\end{customblock}
+				
 			\end{column}
 			
 			\begin{column}{.46\textwidth}
 				
-				\begin{customblock}[10pt]{\textbf{Proposed approach}}{blocktitleviolet}{white}{blockbkgrey}
-					
-					\vspace{15cm}
-					
-				\end{customblock}
-				
-				\begin{customblock}[10pt]{\textbf{Formulation details}}{blocktitleviolet}{white}{blockbkgrey}
-					
-					\vspace{20cm}
-					
+				\begin{customblocknotitle}{blockbkgrey}
+					\input{formulation_p2}
+				\end{customblocknotitle}
+			
+				\begin{customblock}{\textbf{Results}}{hhcmblue}{white}{blockbkgrey}
+					\input{results}
 				\end{customblock}
 			
-				\begin{customblock}[10pt]{\textbf{References}}{boxbkdarkgrey}{white}{blockbkgrey}
-					
-					\vspace{15cm}
-
+%				\begin{customblock}{\textbf{References}}{boxbkdarkgrey}{white}{blockbkgrey}
+%				\vspace{4cm}
+%				\end{customblock}
+				
+				\begin{customblock}{\textbf{Next steps}}{blockbklightblue}{white}{blockbkgrey}
+					\input{next_steps}
 				\end{customblock}
-				
-				\begin{customblock}[10pt]{\textbf{Contact Information}}{blockbkgreen}{white}{blockbkgrey}
-					
-					\Large{ 
-						\color{boxbkseablue}
-						\textbf{\getContactsList}
-					}
-				
-					\vspace{5cm}
-					
+			
+				\begin{customblock}{\textbf{References}}{boxbkyellow}{white}{blockbkgrey}
+					\input{references}
+				\end{customblock}
+			
+				\begin{customblock}{\textbf{Contact Information}}{boxbkseablue}{white}{blockbkgrey}
+				\input{contacts}
 				\end{customblock}
 			
 			\end{column}
 			
 		\end{columns}
-	
-		\vskip1cm
 
 	\end{frame}
 
